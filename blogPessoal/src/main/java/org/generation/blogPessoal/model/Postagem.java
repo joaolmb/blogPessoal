@@ -12,6 +12,8 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "tb_postagem")
 public class Postagem {
@@ -54,7 +56,7 @@ public class Postagem {
 	public void setTexto(String texto) {
 		this.texto = texto;
 	}
-
+	
 	public Date getData() {
 		return data;
 	}
