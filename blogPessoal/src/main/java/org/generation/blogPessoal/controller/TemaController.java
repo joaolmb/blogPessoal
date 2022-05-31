@@ -2,6 +2,8 @@ package org.generation.blogPessoal.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.generation.blogPessoal.model.Tema;
 import org.generation.blogPessoal.repository.TemaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +50,7 @@ public class TemaController {
 	}
 	
 	@PutMapping
-	public ResponseEntity<Tema> put (@RequestBody Tema tema) {
+	public ResponseEntity<Tema> put (@Valid @RequestBody Tema tema) {
 		return ResponseEntity.ok(repository.save(tema));
 	}
 	
