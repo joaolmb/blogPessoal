@@ -29,6 +29,17 @@ public class Usuario {
 	@NotNull
 	@Size(min = 8, max = 100)
 	private String senha;
+	
+	
+
+	public Usuario(Long id, @NotNull @Size(min = 2, max = 100) String nome,
+			@NotNull @Size(min = 3, max = 100) String usuario, @NotNull @Size(min = 8, max = 100) String senha) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.usuario = usuario;
+		this.senha = senha;
+	}
 
 	// Criando getters and setters
 	public Long getId() {
