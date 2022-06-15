@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+@SuppressWarnings("deprecation")
 @EnableWebSecurity
 public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -20,6 +21,11 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService);
+		
+		auth.inMemoryAuthentication()
+		.withUser("root")
+		.password(passwordEncoder().encode("root"))
+		.authorities("ROLE_USER");
 	}
 
 	@Bean

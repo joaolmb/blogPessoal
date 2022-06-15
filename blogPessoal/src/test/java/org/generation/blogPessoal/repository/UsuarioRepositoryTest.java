@@ -27,14 +27,14 @@ public class UsuarioRepositoryTest {
 	void stard() {
 		repository.deleteAll();
 		
-		repository.save(new Usuario(0L, "Victor Marques", "joao@joao", "12345678"));
-		repository.save(new Usuario(0L, "João Bento", "bento@joao", "12345678"));
-		repository.save(new Usuario(0L, "João David", "david@joao", "12345678"));
-		repository.save(new Usuario(0L, "João Victor", "victor@joao", "12345678"));
+		repository.save(new Usuario(0L, "Victor Marques", "joao@joao", "12345678", "FOTO"));
+		repository.save(new Usuario(0L, "João Bento", "bento@joao", "12345678", "FOTO"));
+		repository.save(new Usuario(0L, "João David", "david@joao", "12345678", "FOTO"));
+		repository.save(new Usuario(0L, "João Victor", "victor@joao", "12345678", "FOTO"));
 	}
 	
 	@Test
-	@DisplayName("Retorna um uduário")
+	@DisplayName("Retorna um usuário")
 	public void deveRetornarUmUsuario() {
 		Optional<Usuario> usuario = repository.findByUsuario("joao@joao");
 		assertTrue(usuario.get().getUsuario().equals("joao@joao"));
@@ -44,7 +44,7 @@ public class UsuarioRepositoryTest {
 	@DisplayName("Retorna 3 usuários")
 	public void deveRetornarTresUsuarios() {
 		
-		List<Usuario> listaDeUsuarios = repository.findAllByNomeContainingIgnoreCase("joao");
+		List<Usuario> listaDeUsuarios = repository.findAllByNomeContainingIgnoreCase("joão");
 		
 		assertEquals(3, listaDeUsuarios.size());
 		
