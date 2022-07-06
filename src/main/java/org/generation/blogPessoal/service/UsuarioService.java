@@ -85,9 +85,10 @@ public class UsuarioService {
 		return encoder.matches(senhaDigitada, senhaBanco);
 	}
 
-	private String gerarBasicToken(String usuario, String senha) {
-		String token = usuario + " : " + senha;
-		byte[] tokenBase64 = Base64.encodeBase64(token.getBytes(Charset.forName("US-ASCII")));
+private String gerarBasicToken(String email, String password) {
+
+		String tokenBase = email + ":" + password;
+		byte[] tokenBase64 = Base64.encodeBase64(tokenBase.getBytes(Charset.forName("US-ASCII")));
 		return "Basic " + new String(tokenBase64);
 
 	}
